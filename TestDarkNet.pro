@@ -1,3 +1,3 @@
 #-------------------------------------------------
 #
-# Project create
+# Project created by QtCreator
