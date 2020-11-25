@@ -1,3 +1,3 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator
+# Project created by QtCreator 2018-06-1
