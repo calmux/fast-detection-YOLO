@@ -6,4 +6,4 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_
+greaterThan(QT_MAJOR_VERSION, 4
