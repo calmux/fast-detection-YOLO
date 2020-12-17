@@ -12,4 +12,4 @@ TARGET = TestDarkNet
 TEMPLATE = app
 
 
-SOURCES
+SOURCES += main
