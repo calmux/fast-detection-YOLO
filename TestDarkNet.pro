@@ -12,4 +12,5 @@ TARGET = TestDarkNet
 TEMPLATE = app
 
 
-SOURCES += main
+SOURCES += main.cpp\
+      
