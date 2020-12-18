@@ -13,4 +13,4 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-      
+        mainwindo
