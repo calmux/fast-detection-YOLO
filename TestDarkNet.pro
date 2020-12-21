@@ -15,4 +15,5 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp
 
-HEADERS  += mainwi
+HEADERS  += mainwindow.h \
+   
