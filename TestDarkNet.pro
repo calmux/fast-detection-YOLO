@@ -16,4 +16,6 @@ SOURCES += main.cpp\
         mainwindow.cpp
 
 HEADERS  += mainwindow.h \
-    yolo_v2
+    yolo_v2_class.h
+
+FO
