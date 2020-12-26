@@ -18,4 +18,7 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     yolo_v2_class.h
 
-FORMS    += main
+FORMS    += mainwindow.ui
+
+
+LIBS
