@@ -21,4 +21,4 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 
-LIBS
+LIBS += `pkg-confi
