@@ -21,4 +21,8 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 
-LIBS += `pkg-config opencv --lib
+LIBS += `pkg-config opencv --libs`\
+
+
+
+un
