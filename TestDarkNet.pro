@@ -25,4 +25,4 @@ LIBS += `pkg-config opencv --libs`\
 
 
 
-unix:!macx: 
+unix:!macx: LIBS += -L$$P
