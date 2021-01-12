@@ -26,3 +26,5 @@ LIBS += `pkg-config opencv --libs`\
 
 
 unix:!macx: LIBS += -L$$PWD/./ -ldarknet
+
+INCLUDEP
