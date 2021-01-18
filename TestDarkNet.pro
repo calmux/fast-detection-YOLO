@@ -28,3 +28,4 @@ LIBS += `pkg-config opencv --libs`\
 unix:!macx: LIBS += -L$$PWD/./ -ldarknet
 
 INCLUDEPATH += $$PWD/.
+DEPENDPATH +=
