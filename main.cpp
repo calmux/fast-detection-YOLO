@@ -17,3 +17,16 @@ int main(int argc, char *argv[])
     QDesktopWidget desktop;
 
     screenWidth = desktop.screen()->width();
+    screenHeight = desktop.screen()->height();
+
+    x = (screenWidth - W) / 2;
+    y = (screenHeight - H) / 2;
+
+
+    MainWindow w;
+    w.move( x, y );
+    w.setWindowTitle("Real-time Object Detection");
+    w.show();
+
+    return a.exec();
+}
