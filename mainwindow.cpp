@@ -27,3 +27,13 @@ void draw_boxes(cv::Mat mat_img, std::vector<bbox_t> result_vec, std::vector<std
             cv::Scalar color(60, 160, 260);
             cv::Scalar color2(120, 60, 150);
             cv::rectangle(mat_img, cv::Rect(i.x, i.y, i.w, i.h), color, 3);
+
+            if (obj_names.size() >= i.obj_id)
+            {
+                string w = to_string(i.w);
+                string h = to_string(i.h);
+                putText(mat_img, obj_names[i.obj_id], cv::Point2f(i.x, i.y - 10), cv::FONT_HERSHEY_COMPLEX_SMALL, 1, color2);
+                //putText(mat_img, h, cv::Point2f(i.x, i.y - 20), cv::FONT_HERSHEY_COMPLEX_SMALL, 1, color);
+                //putText(mat_img, w, cv::Point2f(i.x, i.y - 30), cv::FONT_HERSHEY_COMPLEX_SMALL, 1, color);
+            }
+            /*if (i.track_id > 0)
