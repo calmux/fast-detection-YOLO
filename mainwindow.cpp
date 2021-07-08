@@ -52,3 +52,12 @@ void show_result(std::vector<bbox_t> const result_vec, std::vector<std::string> 
                     << std::setprecision(3) << ", prob = " << i.prob << std::endl;
 
     }
+}
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{    
+    ui->setupUi(this);
+
+    QPalette pal = palette();
