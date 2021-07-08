@@ -37,3 +37,18 @@ void draw_boxes(cv::Mat mat_img, std::vector<bbox_t> result_vec, std::vector<std
                 //putText(mat_img, w, cv::Point2f(i.x, i.y - 30), cv::FONT_HERSHEY_COMPLEX_SMALL, 1, color);
             }
             /*if (i.track_id > 0)
+                    putText(mat_img, std::to_string(i.track_id), cv::Point2f(i.x + 5, i.y + 15), cv::FONT_HERSHEY_COMPLEX_SMALL, 1, color);*/
+    }
+    namedWindow("Result",WINDOW_AUTOSIZE);
+    moveWindow("Result",300,50);
+    cv::imshow("Result", mat_img);
+}
+
+void show_result(std::vector<bbox_t> const result_vec, std::vector<std::string> const obj_names) {
+    for (auto &i : result_vec) {
+            if (obj_names.size() > i.obj_id) std::cout << obj_names[i.obj_id] << " - ";
+            std::cout << "obj_id = " << i.obj_id << ",  x = " << i.x << ", y = " << i.y
+                    << ", w = " << i.w << ", h = " << i.h
+                    << std::setprecision(3) << ", prob = " << i.prob << std::endl;
+
+    }
