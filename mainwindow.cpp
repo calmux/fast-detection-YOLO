@@ -69,3 +69,15 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         this->detector = new Detector("../data/lightDenseYOLO.cfg", "../data/lightDenseYOLO.weights");
         obj_names = objects_names_from_file("../data/coco.names");
+    }
+    catch(std::exception &e){ std::cerr << "exception: " << e.what() << "\n"; getchar(); }
+    catch (...) { std::cerr << "unknown exception \n"; getchar(); }
+
+    QPalette sample_palette;
+    sample_palette.setColor(QPalette::Window, Qt::white);
+    sample_palette.setColor(QPalette::WindowText, Qt::blue);
+
+    ui->lblStatus->setAutoFillBackground(true);
+    ui->lblStatus->setPalette(sample_palette);
+    ui->lblStatus->setText("Ready");
+}
