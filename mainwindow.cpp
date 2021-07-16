@@ -61,3 +61,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     QPalette pal = palette();
+    pal.setColor(QPalette::Background, Qt::white);
+    this->setAutoFillBackground(true);
+    this->setPalette(pal);
+
+    try
+    {
+        this->detector = new Detector("../data/lightDenseYOLO.cfg", "../data/lightDenseYOLO.weights");
+        obj_names = objects_names_from_file("../data/coco.names");
