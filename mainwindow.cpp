@@ -81,3 +81,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lblStatus->setPalette(sample_palette);
     ui->lblStatus->setText("Ready");
 }
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+
+
+void MainWindow::on_actionReset_triggered()
+{
