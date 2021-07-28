@@ -91,3 +91,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionReset_triggered()
 {
+    ui->txtPath->clear();
+}
+
+void MainWindow::on_actionExit_Program_triggered()
+{
+    QApplication::quit();
+}
+
+void MainWindow::on_btnBrowse_clicked()
+{
