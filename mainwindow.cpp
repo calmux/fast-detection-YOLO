@@ -101,3 +101,14 @@ void MainWindow::on_actionExit_Program_triggered()
 
 void MainWindow::on_btnBrowse_clicked()
 {
+    QString fileName = QFileDialog::getOpenFileName(this,"Select file","/home/phong",tr("Images (*.png *.xpm *.jpg);;Video files (*.mp4 *.MOV *.avi)"));
+    ui->txtPath->setText(fileName);
+}
+
+void MainWindow::on_btnDetect_clicked()
+{
+    destroyAllWindows();
+    string path = ui->txtPath->text().toStdString();
+    if(path == "")
+        QMessageBox::information(this,"Warning","Please select an image or a video");
+    else
