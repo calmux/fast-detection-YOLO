@@ -122,3 +122,17 @@ void MainWindow::on_btnDetect_clicked()
             {
                 QMessageBox::information(this,"Warning","Error reading video !");
             }
+            while(1){
+                Mat frame;
+                cap>>frame;
+                if(frame.empty())
+                {
+                    QMessageBox::information(this,"Information","Video ended !");
+                    break;
+                }
+                std::vector<bbox_t> result_vec = this->detector->detect(frame);
+                draw_boxes(frame, result_vec, obj_names);
+
+                char c=(char)waitKey(25);
+                if(c==27)
+                    break;
