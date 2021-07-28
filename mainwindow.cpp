@@ -112,3 +112,13 @@ void MainWindow::on_btnDetect_clicked()
     if(path == "")
         QMessageBox::information(this,"Warning","Please select an image or a video");
     else
+    {
+        std::string const file_ext = path.substr(path.find_last_of(".") + 1);
+        if (file_ext == "avi" || file_ext == "mp4" || file_ext == "mjpg" || file_ext == "MOV") {	// video file
+            VideoCapture cap(path);
+            cout<<path<<endl;
+
+            if( !cap.isOpened())
+            {
+                QMessageBox::information(this,"Warning","Error reading video !");
+            }
