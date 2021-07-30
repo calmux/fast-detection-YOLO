@@ -156,3 +156,16 @@ void MainWindow::on_btnWebcamOpen_clicked()
     destroyAllWindows();
     VideoCapture cap;
     if(!cap.open(0))
+    {
+        QMessageBox::information(this,"Warning","No webcam detected !");
+    }
+
+    for(;;)
+    {
+        Mat frame;
+        cap>>frame;
+        if(frame.empty())
+        {
+            QMessageBox::information(this,"Information","No webcam detected !");
+            break;
+        }
