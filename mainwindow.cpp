@@ -136,3 +136,9 @@ void MainWindow::on_btnDetect_clicked()
                 char c=(char)waitKey(25);
                 if(c==27)
                     break;
+            }
+            cap.release();
+            // Closes all the frames
+            destroyAllWindows();
+        }
+        else
