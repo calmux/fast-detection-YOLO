@@ -142,3 +142,17 @@ void MainWindow::on_btnDetect_clicked()
             destroyAllWindows();
         }
         else
+        {
+            cv::Mat mat_img = cv::imread(path);
+            std::vector<bbox_t> result_vec = this->detector->detect(mat_img);
+            //show_result(result_vec, obj_names);
+            draw_boxes(mat_img, result_vec, obj_names);
+        }
+    }
+}
+
+void MainWindow::on_btnWebcamOpen_clicked()
+{
+    destroyAllWindows();
+    VideoCapture cap;
+    if(!cap.open(0))
