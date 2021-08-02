@@ -169,3 +169,14 @@ void MainWindow::on_btnWebcamOpen_clicked()
             QMessageBox::information(this,"Information","No webcam detected !");
             break;
         }
+        std::vector<bbox_t> result_vec = this->detector->detect(frame);
+        draw_boxes(frame, result_vec, obj_names);
+
+        char c=(char)waitKey(25);
+        if(c==27)
+            break;
+
+    }
+    cap.release();
+    destroyAllWindows();
+}
