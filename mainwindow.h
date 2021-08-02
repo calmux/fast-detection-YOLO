@@ -1,3 +1,16 @@
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QtGui>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QFileDialog>
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include "yolo_v2_class.h"
+
+using namespace std;
+using namespace cv;
+namespace Ui {
