@@ -24,3 +24,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    Detector *detector;
+    std::vector<std::string> obj_names;
+
+
+private slots:
+    void on_actionReset_triggered();
