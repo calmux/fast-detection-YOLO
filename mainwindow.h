@@ -30,3 +30,17 @@ public:
 
 private slots:
     void on_actionReset_triggered();
+
+    void on_actionExit_Program_triggered();
+
+    void on_btnBrowse_clicked();
+
+    void on_btnDetect_clicked();
+
+    void on_btnWebcamOpen_clicked();
+
+private:
+    Ui::MainWindow *ui;
+};
+
+#endif // MAINWINDOW_H
