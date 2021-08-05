@@ -23,3 +23,15 @@
       <width>101</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Detect </string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtPath">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>120</y>
+      <width>401</width>
+      <height>51</height>
