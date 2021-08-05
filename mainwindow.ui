@@ -35,3 +35,13 @@
       <y>120</y>
       <width>401</width>
       <height>51</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnBrowse">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>120</y>
+      <width>101</width>
+      <height>51</height>
