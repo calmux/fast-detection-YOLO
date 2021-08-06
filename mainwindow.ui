@@ -66,3 +66,13 @@
      </font>
     </property>
     <property name="text">
+     <string>1. Detect object on a single single image or a video</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>200</y>
+      <width>321</width>
+      <height>31</height>
