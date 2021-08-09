@@ -102,3 +102,11 @@
       <italic>true</italic>
      </font>
     </property>
+    <property name="text">
+     <string>Real-time Object Detector</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="margin">
+     <number>0</number>
