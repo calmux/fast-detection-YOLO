@@ -127,3 +127,13 @@
       <italic>true</italic>
      </font>
     </property>
+    <property name="text">
+     <string>using lightDenseYOLO</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+   </widget>
