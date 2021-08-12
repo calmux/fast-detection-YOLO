@@ -137,3 +137,17 @@
      <number>0</number>
     </property>
    </widget>
+   <widget class="QPushButton" name="btnWebcamOpen">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>190</y>
+      <width>101</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>START</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
