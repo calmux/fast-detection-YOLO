@@ -38,3 +38,12 @@ struct image_t {
 
 #include <opencv2/opencv.hpp>			// C++
 #include "opencv2/highgui/highgui_c.h"	// C
+#include "opencv2/imgproc/imgproc_c.h"	// C
+
+
+class Detector {
+	std::shared_ptr<void> detector_gpu_ptr;
+	std::deque<std::vector<bbox_t>> prev_bbox_vec_deque;
+	const int cur_gpu_id;
+public:
+	float nms = .4;
