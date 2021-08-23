@@ -27,3 +27,14 @@ struct image_t {
 	int w;						// width
 	int c;						// number of chanels (3 - for RGB)
 	float *data;				// pointer to the image data
+};
+
+#ifdef __cplusplus
+#include <memory>
+#include <vector>
+#include <deque>
+#include <algorithm>
+
+
+#include <opencv2/opencv.hpp>			// C++
+#include "opencv2/highgui/highgui_c.h"	// C
