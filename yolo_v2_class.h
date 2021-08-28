@@ -66,3 +66,13 @@ public:
 	std::vector<bbox_t> detect_resized(image_t img, int init_w, int init_h, float thresh = 0.2, bool use_mean = false)
 	{
 		if (img.data == NULL)
+			throw std::runtime_error("Image is empty");
+		auto detection_boxes = detect(img, thresh, use_mean);
+		float wk = (float)init_w / img.w, hk = (float)init_h / img.h;
+		for (auto &i : detection_boxes) i.x *= wk, i.w *= wk, i.y *= hk, i.h *= hk;
+		return detection_boxes;
+	}
+
+
+	std::vector<bbox_t> detect(cv::Mat mat, float thresh = 0.2, bool use_mean = false)
+	{
