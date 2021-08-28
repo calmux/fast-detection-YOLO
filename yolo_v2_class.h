@@ -76,3 +76,14 @@ public:
 
 	std::vector<bbox_t> detect(cv::Mat mat, float thresh = 0.2, bool use_mean = false)
 	{
+		if(mat.data == NULL)
+			throw std::runtime_error("Image is empty");
+		auto image_ptr = mat_to_image_resize(mat);
+		return detect_resized(*image_ptr, mat.cols, mat.rows, thresh, use_mean);
+	}
+
+	std::shared_ptr<image_t> mat_to_image_resize(cv::Mat mat) const
+	{
+		if (mat.data == NULL) return std::shared_ptr<image_t>(NULL);
+		cv::Mat det_mat;
+		cv::resize(mat, det_mat, cv::Size(get_net_width(), get_net_height()));
