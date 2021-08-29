@@ -87,3 +87,14 @@ public:
 		if (mat.data == NULL) return std::shared_ptr<image_t>(NULL);
 		cv::Mat det_mat;
 		cv::resize(mat, det_mat, cv::Size(get_net_width(), get_net_height()));
+		return mat_to_image(det_mat);
+	}
+
+	static std::shared_ptr<image_t> mat_to_image(cv::Mat img_src)
+	{
+		cv::Mat img;
+		cv::cvtColor(img_src, img, cv::COLOR_RGB2BGR);
+		std::shared_ptr<image_t> image_ptr(new image_t, [](image_t *img) { free_image(*img); delete img; });
+		std::shared_ptr<IplImage> ipl_small = std::make_shared<IplImage>(img);
+		*image_ptr = ipl_to_image(ipl_small.get());
+		return image_ptr;
