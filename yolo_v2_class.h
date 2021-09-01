@@ -98,3 +98,14 @@ public:
 		std::shared_ptr<IplImage> ipl_small = std::make_shared<IplImage>(img);
 		*image_ptr = ipl_to_image(ipl_small.get());
 		return image_ptr;
+	}
+
+private:
+
+	static image_t ipl_to_image(IplImage* src)
+	{
+		unsigned char *data = (unsigned char *)src->imageData;
+		int h = src->height;
+		int w = src->width;
+		int c = src->nChannels;
+		int step = src->widthStep;
