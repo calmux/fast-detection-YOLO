@@ -109,3 +109,14 @@ private:
 		int w = src->width;
 		int c = src->nChannels;
 		int step = src->widthStep;
+		image_t out = make_image_custom(w, h, c);
+		int count = 0;
+
+		for (int k = 0; k < c; ++k) {
+			for (int i = 0; i < h; ++i) {
+				int i_step = i*step;
+				for (int j = 0; j < w; ++j) {
+					out.data[count++] = data[i_step + j*c + k] / 255.;
+				}
+			}
+		}
