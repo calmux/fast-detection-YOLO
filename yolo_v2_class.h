@@ -120,3 +120,16 @@ private:
 				}
 			}
 		}
+
+		return out;
+	}
+
+	static image_t make_empty_image(int w, int h, int c)
+	{
+		image_t out;
+		out.data = 0;
+		out.h = h;
+		out.w = w;
+		out.c = c;
+		return out;
+	}
