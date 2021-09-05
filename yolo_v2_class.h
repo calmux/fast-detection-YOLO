@@ -144,3 +144,14 @@ private:
 
 
 };
+
+
+
+#if defined(TRACK_OPTFLOW) && defined(OPENCV) && defined(GPU)
+
+#include <opencv2/cudaoptflow.hpp>
+#include <opencv2/cudaimgproc.hpp>
+#include <opencv2/cudaarithm.hpp>
+#include <opencv2/core/cuda.hpp>
+
+class Tracker_optflow {
