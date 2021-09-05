@@ -133,3 +133,14 @@ private:
 		out.c = c;
 		return out;
 	}
+
+	static image_t make_image_custom(int w, int h, int c)
+	{
+		image_t out = make_empty_image(w, h, c);
+		out.data = (float *)calloc(h*w*c, sizeof(float));
+		return out;
+	}
+
+
+
+};
