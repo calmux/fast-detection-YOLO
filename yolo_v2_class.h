@@ -165,3 +165,12 @@ public:
 		gpu_count(cv::cuda::getCudaEnabledDeviceCount()), gpu_id(std::min(_gpu_id, gpu_count-1)),
 		flow_error((_flow_error > 0)? _flow_error:(win_size*4))
 	{
+		int const old_gpu_id = cv::cuda::getDevice();
+		cv::cuda::setDevice(gpu_id);
+
+		stream = cv::cuda::Stream();
+
+		sync_PyrLKOpticalFlow_gpu = cv::cuda::SparsePyrLKOpticalFlow::create();
+		sync_PyrLKOpticalFlow_gpu->setWinSize(cv::Size(win_size, win_size));	// 9, 15, 21, 31
+		sync_PyrLKOpticalFlow_gpu->setMaxLevel(max_level);		// +- 3 pt
+		sync_PyrLKOpticalFlow_gpu->setNumIters(iterations);	// 2000, def: 30
