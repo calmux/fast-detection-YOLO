@@ -155,3 +155,13 @@ private:
 #include <opencv2/core/cuda.hpp>
 
 class Tracker_optflow {
+public:
+	const int gpu_count;
+	const int gpu_id;
+	const int flow_error;
+
+
+	Tracker_optflow(int _gpu_id = 0, int win_size = 9, int max_level = 3, int iterations = 8000, int _flow_error = -1) :
+		gpu_count(cv::cuda::getCudaEnabledDeviceCount()), gpu_id(std::min(_gpu_id, gpu_count-1)),
+		flow_error((_flow_error > 0)? _flow_error:(win_size*4))
+	{
