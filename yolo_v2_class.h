@@ -194,3 +194,12 @@ public:
 
 	void update_cur_bbox_vec(std::vector<bbox_t> _cur_bbox_vec)
 	{
+		cur_bbox_vec = _cur_bbox_vec;
+		good_bbox_vec_flags = std::vector<bool>(cur_bbox_vec.size(), true);
+		cv::Mat prev_pts, cur_pts_flow_cpu;
+
+		for (auto &i : cur_bbox_vec) {
+			float x_center = (i.x + i.w / 2.0F);
+			float y_center = (i.y + i.h / 2.0F);
+			prev_pts.push_back(cv::Point2f(x_center, y_center));
+		}
