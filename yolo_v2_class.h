@@ -174,3 +174,12 @@ public:
 		sync_PyrLKOpticalFlow_gpu->setWinSize(cv::Size(win_size, win_size));	// 9, 15, 21, 31
 		sync_PyrLKOpticalFlow_gpu->setMaxLevel(max_level);		// +- 3 pt
 		sync_PyrLKOpticalFlow_gpu->setNumIters(iterations);	// 2000, def: 30
+
+		cv::cuda::setDevice(old_gpu_id);
+	}
+
+	// just to avoid extra allocations
+	cv::cuda::GpuMat src_mat_gpu;
+	cv::cuda::GpuMat dst_mat_gpu, dst_grey_gpu;
+	cv::cuda::GpuMat prev_pts_flow_gpu, cur_pts_flow_gpu;
+	cv::cuda::GpuMat status_gpu, err_gpu;
