@@ -183,3 +183,14 @@ public:
 	cv::cuda::GpuMat dst_mat_gpu, dst_grey_gpu;
 	cv::cuda::GpuMat prev_pts_flow_gpu, cur_pts_flow_gpu;
 	cv::cuda::GpuMat status_gpu, err_gpu;
+
+	cv::cuda::GpuMat src_grey_gpu;	// used in both functions
+	cv::Ptr<cv::cuda::SparsePyrLKOpticalFlow> sync_PyrLKOpticalFlow_gpu;
+	cv::cuda::Stream stream;
+
+	std::vector<bbox_t> cur_bbox_vec;
+	std::vector<bool> good_bbox_vec_flags;
+	cv::Mat prev_pts_flow_cpu;
+
+	void update_cur_bbox_vec(std::vector<bbox_t> _cur_bbox_vec)
+	{
