@@ -212,3 +212,16 @@ public:
 		if (prev_pts_flow_gpu.cols < prev_pts_flow_cpu.cols) {
 			prev_pts_flow_gpu = cv::cuda::GpuMat(prev_pts_flow_cpu.size(), prev_pts_flow_cpu.type());
 			cur_pts_flow_gpu = cv::cuda::GpuMat(prev_pts_flow_cpu.size(), prev_pts_flow_cpu.type());
+
+			status_gpu = cv::cuda::GpuMat(prev_pts_flow_cpu.size(), CV_8UC1);
+			err_gpu = cv::cuda::GpuMat(prev_pts_flow_cpu.size(), CV_32FC1);
+		}
+
+		prev_pts_flow_gpu.upload(cv::Mat(prev_pts_flow_cpu), stream);
+	}
+
+
+	void update_tracking_flow(cv::Mat src_mat, std::vector<bbox_t> _cur_bbox_vec)
+	{
+		int const old_gpu_id = cv::cuda::getDevice();
+		if (old_gpu_id != gpu_id)
