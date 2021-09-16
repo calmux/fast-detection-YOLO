@@ -203,3 +203,12 @@ public:
 			float y_center = (i.y + i.h / 2.0F);
 			prev_pts.push_back(cv::Point2f(x_center, y_center));
 		}
+
+		if (prev_pts.rows == 0)
+			prev_pts_flow_cpu = cv::Mat();
+		else
+			cv::transpose(prev_pts, prev_pts_flow_cpu);
+
+		if (prev_pts_flow_gpu.cols < prev_pts_flow_cpu.cols) {
+			prev_pts_flow_gpu = cv::cuda::GpuMat(prev_pts_flow_cpu.size(), prev_pts_flow_cpu.type());
+			cur_pts_flow_gpu = cv::cuda::GpuMat(prev_pts_flow_cpu.size(), prev_pts_flow_cpu.type());
