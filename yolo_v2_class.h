@@ -232,3 +232,16 @@ public:
 				src_mat_gpu = cv::cuda::GpuMat(src_mat.size(), src_mat.type());
 				src_grey_gpu = cv::cuda::GpuMat(src_mat.size(), CV_8UC1);
 			}
+
+			update_cur_bbox_vec(_cur_bbox_vec);
+
+			//src_grey_gpu.upload(src_mat, stream);	// use BGR
+			src_mat_gpu.upload(src_mat, stream);
+			cv::cuda::cvtColor(src_mat_gpu, src_grey_gpu, CV_BGR2GRAY, 1, stream);
+		}
+		if (old_gpu_id != gpu_id)
+			cv::cuda::setDevice(old_gpu_id);
+	}
+
+
+	std::vector<bbox_t> tracking_flow(cv::Mat dst_mat, bool check_error = true)
