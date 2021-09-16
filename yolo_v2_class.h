@@ -225,3 +225,10 @@ public:
 	{
 		int const old_gpu_id = cv::cuda::getDevice();
 		if (old_gpu_id != gpu_id)
+			cv::cuda::setDevice(gpu_id);
+
+		if (src_mat.channels() == 3) {
+			if (src_mat_gpu.cols == 0) {
+				src_mat_gpu = cv::cuda::GpuMat(src_mat.size(), src_mat.type());
+				src_grey_gpu = cv::cuda::GpuMat(src_mat.size(), CV_8UC1);
+			}
