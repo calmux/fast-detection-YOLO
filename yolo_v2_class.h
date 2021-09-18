@@ -270,3 +270,17 @@ public:
 			cv::cuda::setDevice(old_gpu_id);
 			return cur_bbox_vec;
 		}
+
+		////sync_PyrLKOpticalFlow_gpu.sparse(src_grey_gpu, dst_grey_gpu, prev_pts_flow_gpu, cur_pts_flow_gpu, status_gpu, &err_gpu);	// OpenCV 2.4.x
+		sync_PyrLKOpticalFlow_gpu->calc(src_grey_gpu, dst_grey_gpu, prev_pts_flow_gpu, cur_pts_flow_gpu, status_gpu, err_gpu, stream);	// OpenCV 3.x
+
+		cv::Mat cur_pts_flow_cpu;
+		cur_pts_flow_gpu.download(cur_pts_flow_cpu, stream);
+
+		dst_grey_gpu.copyTo(src_grey_gpu, stream);
+
+		cv::Mat err_cpu, status_cpu;
+		err_gpu.download(err_cpu, stream);
+		status_gpu.download(status_cpu, stream);
+
+		stream.waitForCompletion();
