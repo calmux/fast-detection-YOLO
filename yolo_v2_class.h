@@ -252,3 +252,21 @@ public:
 		}
 
 		int const old_gpu_id = cv::cuda::getDevice();
+		if(old_gpu_id != gpu_id)
+			cv::cuda::setDevice(gpu_id);
+
+		if (dst_mat_gpu.cols == 0) {
+			dst_mat_gpu = cv::cuda::GpuMat(dst_mat.size(), dst_mat.type());
+			dst_grey_gpu = cv::cuda::GpuMat(dst_mat.size(), CV_8UC1);
+		}
+
+		//dst_grey_gpu.upload(dst_mat, stream);	// use BGR
+		dst_mat_gpu.upload(dst_mat, stream);
+		cv::cuda::cvtColor(dst_mat_gpu, dst_grey_gpu, CV_BGR2GRAY, 1, stream);
+
+		if (src_grey_gpu.rows != dst_grey_gpu.rows || src_grey_gpu.cols != dst_grey_gpu.cols) {
+			stream.waitForCompletion();
+			src_grey_gpu = dst_grey_gpu.clone();
+			cv::cuda::setDevice(old_gpu_id);
+			return cur_bbox_vec;
+		}
