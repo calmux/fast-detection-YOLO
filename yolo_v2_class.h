@@ -245,3 +245,10 @@ public:
 
 
 	std::vector<bbox_t> tracking_flow(cv::Mat dst_mat, bool check_error = true)
+	{
+		if (sync_PyrLKOpticalFlow_gpu.empty()) {
+			std::cout << "sync_PyrLKOpticalFlow_gpu isn't initialized \n";
+			return cur_bbox_vec;
+		}
+
+		int const old_gpu_id = cv::cuda::getDevice();
