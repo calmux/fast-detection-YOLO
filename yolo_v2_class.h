@@ -284,3 +284,15 @@ public:
 		status_gpu.download(status_cpu, stream);
 
 		stream.waitForCompletion();
+
+		std::vector<bbox_t> result_bbox_vec;
+
+		if (err_cpu.cols == cur_bbox_vec.size() && status_cpu.cols == cur_bbox_vec.size()) 
+		{
+			for (size_t i = 0; i < cur_bbox_vec.size(); ++i)
+			{
+				cv::Point2f cur_key_pt = cur_pts_flow_cpu.at<cv::Point2f>(0, i);
+				cv::Point2f prev_key_pt = prev_pts_flow_cpu.at<cv::Point2f>(0, i);
+
+				float moved_x = cur_key_pt.x - prev_key_pt.x;
+				float moved_y = cur_key_pt.y - prev_key_pt.y;
