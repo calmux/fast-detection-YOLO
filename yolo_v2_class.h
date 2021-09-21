@@ -313,3 +313,12 @@ public:
 		}
 
 		cur_pts_flow_gpu.swap(prev_pts_flow_gpu);
+		cur_pts_flow_cpu.copyTo(prev_pts_flow_cpu);
+
+		if (old_gpu_id != gpu_id)
+			cv::cuda::setDevice(old_gpu_id);
+
+		return result_bbox_vec;
+	}
+
+};
