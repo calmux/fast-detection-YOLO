@@ -337,3 +337,11 @@ public:
 		flow_error((_flow_error > 0)? _flow_error:(win_size*4))
 	{
 		sync_PyrLKOpticalFlow = cv::SparsePyrLKOpticalFlow::create();
+		sync_PyrLKOpticalFlow->setWinSize(cv::Size(win_size, win_size));	// 9, 15, 21, 31
+		sync_PyrLKOpticalFlow->setMaxLevel(max_level);		// +- 3 pt
+
+	}
+
+	// just to avoid extra allocations
+	cv::Mat dst_grey;
+	cv::Mat prev_pts_flow, cur_pts_flow;
