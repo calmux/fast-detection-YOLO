@@ -345,3 +345,10 @@ public:
 	// just to avoid extra allocations
 	cv::Mat dst_grey;
 	cv::Mat prev_pts_flow, cur_pts_flow;
+	cv::Mat status, err;
+
+	cv::Mat src_grey;	// used in both functions
+	cv::Ptr<cv::SparsePyrLKOpticalFlow> sync_PyrLKOpticalFlow;
+
+	std::vector<bbox_t> cur_bbox_vec;
+	std::vector<bool> good_bbox_vec_flags;
