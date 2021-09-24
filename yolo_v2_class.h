@@ -322,3 +322,18 @@ public:
 	}
 
 };
+
+#elif defined(TRACK_OPTFLOW) && defined(OPENCV)
+
+//#include <opencv2/optflow.hpp>
+#include <opencv2/video/tracking.hpp>
+
+class Tracker_optflow {
+public:
+	const int flow_error;
+
+
+	Tracker_optflow(int win_size = 9, int max_level = 3, int iterations = 8000, int _flow_error = -1) :
+		flow_error((_flow_error > 0)? _flow_error:(win_size*4))
+	{
+		sync_PyrLKOpticalFlow = cv::SparsePyrLKOpticalFlow::create();
