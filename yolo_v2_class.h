@@ -352,3 +352,11 @@ public:
 
 	std::vector<bbox_t> cur_bbox_vec;
 	std::vector<bool> good_bbox_vec_flags;
+
+	void update_cur_bbox_vec(std::vector<bbox_t> _cur_bbox_vec)
+	{
+		cur_bbox_vec = _cur_bbox_vec;
+		good_bbox_vec_flags = std::vector<bool>(cur_bbox_vec.size(), true);
+		cv::Mat prev_pts, cur_pts_flow;
+
+		for (auto &i : cur_bbox_vec) {
