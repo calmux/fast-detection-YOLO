@@ -370,3 +370,7 @@ public:
 		else
 			cv::transpose(prev_pts, prev_pts_flow);
 	}
+
+
+	void update_tracking_flow(cv::Mat new_src_mat, std::vector<bbox_t> _cur_bbox_vec)
+	{
