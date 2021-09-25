@@ -360,3 +360,13 @@ public:
 		cv::Mat prev_pts, cur_pts_flow;
 
 		for (auto &i : cur_bbox_vec) {
+			float x_center = (i.x + i.w / 2.0F);
+			float y_center = (i.y + i.h / 2.0F);
+			prev_pts.push_back(cv::Point2f(x_center, y_center));
+		}
+
+		if (prev_pts.rows == 0)
+			prev_pts_flow = cv::Mat();
+		else
+			cv::transpose(prev_pts, prev_pts_flow);
+	}
