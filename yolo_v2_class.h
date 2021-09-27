@@ -374,3 +374,14 @@ public:
 
 	void update_tracking_flow(cv::Mat new_src_mat, std::vector<bbox_t> _cur_bbox_vec)
 	{
+		if (new_src_mat.channels() == 3) {
+
+			update_cur_bbox_vec(_cur_bbox_vec);
+
+			cv::cvtColor(new_src_mat, src_grey, CV_BGR2GRAY, 1);
+		}
+	}
+
+
+	std::vector<bbox_t> tracking_flow(cv::Mat new_dst_mat, bool check_error = true)
+	{
