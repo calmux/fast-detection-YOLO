@@ -385,3 +385,12 @@ public:
 
 	std::vector<bbox_t> tracking_flow(cv::Mat new_dst_mat, bool check_error = true)
 	{
+		if (sync_PyrLKOpticalFlow.empty()) {
+			std::cout << "sync_PyrLKOpticalFlow isn't initialized \n";
+			return cur_bbox_vec;
+		}
+
+		cv::cvtColor(new_dst_mat, dst_grey, CV_BGR2GRAY, 1);
+
+		if (src_grey.rows != dst_grey.rows || src_grey.cols != dst_grey.cols) {
+			src_grey = dst_grey.clone();
