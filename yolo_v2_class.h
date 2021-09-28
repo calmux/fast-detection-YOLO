@@ -394,3 +394,9 @@ public:
 
 		if (src_grey.rows != dst_grey.rows || src_grey.cols != dst_grey.cols) {
 			src_grey = dst_grey.clone();
+			return cur_bbox_vec;
+		}
+
+		if (prev_pts_flow.cols < 1) {
+			return cur_bbox_vec;
+		}
