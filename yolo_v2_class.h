@@ -400,3 +400,17 @@ public:
 		if (prev_pts_flow.cols < 1) {
 			return cur_bbox_vec;
 		}
+
+		////sync_PyrLKOpticalFlow_gpu.sparse(src_grey_gpu, dst_grey_gpu, prev_pts_flow_gpu, cur_pts_flow_gpu, status_gpu, &err_gpu);	// OpenCV 2.4.x
+		sync_PyrLKOpticalFlow->calc(src_grey, dst_grey, prev_pts_flow, cur_pts_flow, status, err);	// OpenCV 3.x
+
+		dst_grey.copyTo(src_grey);
+
+		std::vector<bbox_t> result_bbox_vec;
+
+		if (err.rows == cur_bbox_vec.size() && status.rows == cur_bbox_vec.size())
+		{
+			for (size_t i = 0; i < cur_bbox_vec.size(); ++i)
+			{
+				cv::Point2f cur_key_pt = cur_pts_flow.at<cv::Point2f>(0, i);
+				cv::Point2f prev_key_pt = prev_pts_flow.at<cv::Point2f>(0, i);
