@@ -449,3 +449,9 @@ class Tracker_optflow {};
 #ifdef OPENCV
 
 static cv::Scalar obj_id_to_color(int obj_id) {
+	int const colors[6][3] = { { 1,0,1 },{ 0,0,1 },{ 0,1,1 },{ 0,1,0 },{ 1,1,0 },{ 1,0,0 } };
+	int const offset = obj_id * 123457 % 6;
+	int const color_scale = 150 + (obj_id * 123457) % 100;
+	cv::Scalar color(colors[offset][0], colors[offset][1], colors[offset][2]);
+	color *= color_scale;
+	return color;
