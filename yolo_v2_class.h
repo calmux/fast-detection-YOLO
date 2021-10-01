@@ -424,3 +424,13 @@ public:
 					{
 						cur_bbox_vec[i].x += moved_x + 0.5;
 						cur_bbox_vec[i].y += moved_y + 0.5;
+						result_bbox_vec.push_back(cur_bbox_vec[i]);
+					}
+					else good_bbox_vec_flags[i] = false;
+				else good_bbox_vec_flags[i] = false;
+
+				//if(!check_error && !good_bbox_vec_flags[i]) result_bbox_vec.push_back(cur_bbox_vec[i]);
+			}
+		}
+
+		prev_pts_flow = cur_pts_flow.clone();
