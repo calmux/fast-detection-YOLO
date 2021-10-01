@@ -434,3 +434,18 @@ public:
 		}
 
 		prev_pts_flow = cur_pts_flow.clone();
+
+		return result_bbox_vec;
+	}
+
+};
+#else
+
+class Tracker_optflow {};
+
+#endif	// defined(TRACK_OPTFLOW) && defined(OPENCV)
+
+
+#ifdef OPENCV
+
+static cv::Scalar obj_id_to_color(int obj_id) {
