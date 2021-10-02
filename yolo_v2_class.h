@@ -455,3 +455,14 @@ static cv::Scalar obj_id_to_color(int obj_id) {
 	cv::Scalar color(colors[offset][0], colors[offset][1], colors[offset][2]);
 	color *= color_scale;
 	return color;
+}
+
+class preview_boxes_t {
+	enum { frames_history = 30 };	// how long to keep the history saved
+
+	struct preview_box_track_t {
+		unsigned int track_id, obj_id, last_showed_frames_ago;
+		bool current_detection;
+		bbox_t bbox;
+		cv::Mat mat_obj, mat_resized_obj;
+		preview_box_track_t() : track_id(0), obj_id(0), last_showed_frames_ago(frames_history), current_detection(false) {}
