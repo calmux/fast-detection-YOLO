@@ -473,3 +473,13 @@ class preview_boxes_t {
 public:
 	preview_boxes_t(size_t _preview_box_size = 100, size_t _bottom_offset = 100, bool _one_off_detections = false) :
 		preview_box_size(_preview_box_size), bottom_offset(_bottom_offset), one_off_detections(_one_off_detections)
+	{}
+
+	void set(cv::Mat src_mat, std::vector<bbox_t> result_vec)
+	{
+		size_t const count_preview_boxes = src_mat.cols / preview_box_size;
+		if (preview_box_track_id.size() != count_preview_boxes) preview_box_track_id.resize(count_preview_boxes);
+
+		// increment frames history
+		for (auto &i : preview_box_track_id)
+			i.last_showed_frames_ago = std::min((unsigned)frames_history, i.last_showed_frames_ago + 1);
