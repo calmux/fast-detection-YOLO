@@ -507,3 +507,11 @@ public:
 						break;
 					}
 				}
+			}
+		}
+
+		// draw preview box (from old or current frame)
+		for (size_t i = 0; i < preview_box_track_id.size(); ++i)
+		{
+			// get object image
+			cv::Mat dst = preview_box_track_id[i].mat_resized_obj;
