@@ -483,3 +483,14 @@ public:
 		// increment frames history
 		for (auto &i : preview_box_track_id)
 			i.last_showed_frames_ago = std::min((unsigned)frames_history, i.last_showed_frames_ago + 1);
+
+		// occupy empty boxes
+		for (auto &k : result_vec) {
+			bool found = false;
+			// find the same (track_id)
+			for (auto &i : preview_box_track_id) {
+				if (i.track_id == k.track_id) {
+					if (!one_off_detections) i.last_showed_frames_ago = 0; // for tracked objects
+					found = true;
+					break;
+				}
