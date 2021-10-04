@@ -515,3 +515,13 @@ public:
 		{
 			// get object image
 			cv::Mat dst = preview_box_track_id[i].mat_resized_obj;
+			preview_box_track_id[i].current_detection = false;
+
+			for (auto &k : result_vec) {
+				if (preview_box_track_id[i].track_id == k.track_id) {
+					if (one_off_detections && preview_box_track_id[i].last_showed_frames_ago > 0) {
+						preview_box_track_id[i].last_showed_frames_ago = frames_history; break;
+					}
+					bbox_t b = k;
+					cv::Rect r(b.x, b.y, b.w, b.h);
+					cv::Rect img_rect(cv::Point2i(0, 0), src_mat.size());
