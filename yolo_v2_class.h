@@ -494,3 +494,16 @@ public:
 					found = true;
 					break;
 				}
+			}
+			if (!found) {
+				// find empty box
+				for (auto &i : preview_box_track_id) {
+					if (i.last_showed_frames_ago == frames_history) {
+						if (!one_off_detections && k.frames_counter == 0) break; // don't show if obj isn't tracked yet
+						i.track_id = k.track_id;
+						i.obj_id = k.obj_id;
+						i.bbox = k;
+						i.last_showed_frames_ago = 0;
+						break;
+					}
+				}
