@@ -539,3 +539,13 @@ public:
 			}
 		}
 	}
+
+
+	void draw(cv::Mat draw_mat, bool show_small_boxes = false)
+	{
+		// draw preview box (from old or current frame)
+		for (size_t i = 0; i < preview_box_track_id.size(); ++i)
+		{
+			auto &prev_box = preview_box_track_id[i];
+
+			// draw object image
