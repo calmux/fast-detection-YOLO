@@ -549,3 +549,16 @@ public:
 			auto &prev_box = preview_box_track_id[i];
 
 			// draw object image
+			cv::Mat dst = prev_box.mat_resized_obj;
+			if (prev_box.last_showed_frames_ago < frames_history &&
+				dst.size() == cv::Size(preview_box_size, preview_box_size))
+			{
+				cv::Rect dst_rect_roi(cv::Point2i(i * preview_box_size, draw_mat.rows - bottom_offset), dst.size());
+				cv::Mat dst_roi = draw_mat(dst_rect_roi);
+				dst.copyTo(dst_roi);
+
+				cv::Scalar color = obj_id_to_color(prev_box.obj_id);
+				int thickness = (prev_box.current_detection) ? 5 : 1;
+				cv::rectangle(draw_mat, dst_rect_roi, color, thickness);
+
+				unsigned int const track_id = prev_box.track_id;
