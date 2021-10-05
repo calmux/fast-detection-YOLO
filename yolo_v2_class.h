@@ -525,3 +525,17 @@ public:
 					bbox_t b = k;
 					cv::Rect r(b.x, b.y, b.w, b.h);
 					cv::Rect img_rect(cv::Point2i(0, 0), src_mat.size());
+					cv::Rect rect_roi = r & img_rect;
+					if (rect_roi.width > 1 || rect_roi.height > 1) {
+						cv::Mat roi = src_mat(rect_roi);
+						cv::resize(roi, dst, cv::Size(preview_box_size, preview_box_size), cv::INTER_NEAREST);
+						preview_box_track_id[i].mat_obj = roi.clone();
+						preview_box_track_id[i].mat_resized_obj = dst.clone();
+						preview_box_track_id[i].current_detection = true;
+						preview_box_track_id[i].bbox = k;
+					}
+					break;
+				}
+			}
+		}
+	}
