@@ -606,3 +606,17 @@ public:
 
 #ifdef __cplusplus
 }	// extern "C"
+
+static std::shared_ptr<void> c_detector_ptr;
+static std::vector<bbox_t> c_result_vec;
+
+void create_detector(char const* cfg_filename, char const* weight_filename, int gpu_id) {
+	c_detector_ptr = std::make_shared<YOLODLL_API Detector>(cfg_filename, weight_filename, gpu_id);
+}
+
+void delete_detector() { c_detector_ptr.reset(); }
+
+bbox_t* detect_custom(image_t img, float thresh, bool use_mean, int *result_size) {
+	c_result_vec = static_cast<Detector*>(c_detector_ptr.get())->detect(img, thresh, use_mean);
+	*result_size = c_result_vec.size();
+	return c_result_vec.data();
