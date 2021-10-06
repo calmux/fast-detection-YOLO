@@ -576,3 +576,19 @@ public:
 
 				if (one_off_detections && show_small_boxes) {
 					cv::Rect src_rect_roi(cv::Point2i(prev_box.bbox.x, prev_box.bbox.y),
+						cv::Size(prev_box.bbox.w, prev_box.bbox.h));
+					unsigned int const color_history = (255 * prev_box.last_showed_frames_ago) / frames_history;
+					color = cv::Scalar(255 - 3 * color_history, 255 - 2 * color_history, 255 - 1 * color_history);
+					if (prev_box.mat_obj.size() == src_rect_roi.size()) {
+						prev_box.mat_obj.copyTo(draw_mat(src_rect_roi));
+					}
+					cv::rectangle(draw_mat, src_rect_roi, color, thickness);
+					putText(draw_mat, track_id_str, src_rect_roi.tl() - cv::Point2i(0, 10), cv::FONT_HERSHEY_COMPLEX_SMALL, 0.8, cv::Scalar(0, 0, 0), 1);
+				}
+			}
+		}
+	}
+};
+#endif	// OPENCV
+
+//extern "C" {
