@@ -562,3 +562,17 @@ public:
 				cv::rectangle(draw_mat, dst_rect_roi, color, thickness);
 
 				unsigned int const track_id = prev_box.track_id;
+				std::string track_id_str = (track_id > 0) ? std::to_string(track_id) : "";
+				putText(draw_mat, track_id_str, dst_rect_roi.tl() - cv::Point2i(-4, 5), cv::FONT_HERSHEY_COMPLEX_SMALL, 0.9, cv::Scalar(0, 0, 0), 2);
+
+				std::string size_str = std::to_string(prev_box.bbox.w) + "x" + std::to_string(prev_box.bbox.h);
+				putText(draw_mat, size_str, dst_rect_roi.tl() + cv::Point2i(0, 12), cv::FONT_HERSHEY_COMPLEX_SMALL, 0.8, cv::Scalar(0, 0, 0), 1);
+
+				if (!one_off_detections && prev_box.current_detection) {
+					cv::line(draw_mat, dst_rect_roi.tl() + cv::Point2i(preview_box_size, 0),
+						cv::Point2i(prev_box.bbox.x, prev_box.bbox.y + prev_box.bbox.h),
+						color);
+				}
+
+				if (one_off_detections && show_small_boxes) {
+					cv::Rect src_rect_roi(cv::Point2i(prev_box.bbox.x, prev_box.bbox.y),
