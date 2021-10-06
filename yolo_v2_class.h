@@ -592,3 +592,17 @@ public:
 #endif	// OPENCV
 
 //extern "C" {
+#endif	// __cplusplus
+
+/*
+	// C - wrappers
+	YOLODLL_API void create_detector(char const* cfg_filename, char const* weight_filename, int gpu_id);
+	YOLODLL_API void delete_detector();
+	YOLODLL_API bbox_t* detect_custom(image_t img, float thresh, bool use_mean, int *result_size);
+	YOLODLL_API bbox_t* detect_resized(image_t img, int init_w, int init_h, float thresh, bool use_mean, int *result_size);
+	YOLODLL_API bbox_t* detect(image_t img, int *result_size);
+	YOLODLL_API image_t load_img(char *image_filename);
+	YOLODLL_API void free_img(image_t m);
+
+#ifdef __cplusplus
+}	// extern "C"
