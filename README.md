@@ -1,3 +1,3 @@
 # fast-detection-YOLO
 
-A real-time object det
+A real-time object detection app based 
