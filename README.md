@@ -1,3 +1,3 @@
 # fast-detection-YOLO
 
-A real-t
+A real-time object det
