@@ -1,3 +1,3 @@
 # fast-detection-YOLO
 
-A real-time object detection app based on lightDenseYOLO. The lig
+A real-time object detection app based on lightDenseYOLO. The lightDen
