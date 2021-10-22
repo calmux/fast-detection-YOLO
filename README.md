@@ -1,3 +1,3 @@
 # fast-detection-YOLO
 
-A real-time object detection app based on lightDenseYOLO. The lightDenseYOLO implementation leverages lightDenseNet as its feat
+A real-time object detection app based on lightDenseYOLO. The lightDenseYOLO implementation leverages lightDenseNet as its feature extractor 
