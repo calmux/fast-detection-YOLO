@@ -4,4 +4,4 @@ A real-time object detection app based on lightDenseYOLO. The lightDenseYOLO imp
 
 Fast-detection-YOLO was trained on two renowned object detection datasets (MS COCO and Pascal VOC 07+12).
 
-| CNN architecture               | Training Data  | mAP       | Processing 
+| CNN architecture               | Training Data  | mAP       | Processing time      
