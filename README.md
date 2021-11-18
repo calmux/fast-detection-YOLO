@@ -6,4 +6,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 
 | CNN architecture               | Training Data  | mAP       | Processing time       |
 |---------------------------     |--------------- |---------  |-----------------------|
-| **lig
+| **lightDenseYOLO (2
