@@ -7,4 +7,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 | CNN architecture               | Training Data  | mAP       | Processing time       |
 |---------------------------     |--------------- |---------  |-----------------------|
 | **lightDenseYOLO (2 blocks)**  | VOC            | **70.7**  | **20 ms ~ 50 fps**    |
-| lightDenseYOLO (4 blocks)      | VOC            | **77.1**  | **2
+| lightDenseYOLO (4 blocks)      | VOC            | **77.1**  | **28 ms ~ 35.8 f
