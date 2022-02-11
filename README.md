@@ -14,4 +14,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 | lightDenseYOLO (2 blocks)      | VOC + COCO     | **79.0**  | **20 ms ~ 50 fps**    |
 | lightDenseYOLO (4 blocks)      | VOC + COCO     | **82.5**  | **28 ms ~ 35.8 fps**  |
 | YOLO v2                        | VOC + COCO     | 81.5      | 30 ms ~ 33 fps        |
-| Faster-RCNN + Resnet 101       | VOC +
+| Faster-RCNN + Resnet 101       | VOC + COCO     | 83.8  
