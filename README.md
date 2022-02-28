@@ -19,4 +19,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 
 # Usage
 
-*
+**Requireme
