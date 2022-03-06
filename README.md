@@ -20,4 +20,5 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 # Usage
 
 **Requirements:**
-+ Ubuntu 16.04
++ Ubuntu 16.04+
++ C++ 11 co
