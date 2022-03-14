@@ -24,4 +24,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 + C++ 11 complier
 + QT 5.7.0 and QT Creator 4.0.2
 + Open CV 3.2 +
-+ GPU (NVIDIA 
++ GPU (NVIDIA Gefore 10
