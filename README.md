@@ -26,4 +26,5 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 + Open CV 3.2 +
 + GPU (NVIDIA Gefore 1070+)
 
-**Installatio
+**Installation**
++ [Ins
