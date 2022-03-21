@@ -27,4 +27,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 + GPU (NVIDIA Gefore 1070+)
 
 **Installation**
-+ [Install CUDA, CUDNN](http://www.python36.com/how-to-install-tensorflow-gpu-with-
++ [Install CUDA, CUDNN](http://www.python36.com/how-to-install-tensorflow-gpu-with-cuda-9-2-for-python
