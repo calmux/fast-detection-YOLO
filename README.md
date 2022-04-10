@@ -29,4 +29,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 **Installation**
 + [Install CUDA, CUDNN](http://www.python36.com/how-to-install-tensorflow-gpu-with-cuda-9-2-for-python-on-ubuntu/)
 + [Install OpenCV](http://www.python36.com/how-to-install-tensorflow-gpu-with-cuda-9-2-for-python-on-ubuntu/)
-+ [Install QT by terminal](
++ [Install QT by terminal](https://wi
