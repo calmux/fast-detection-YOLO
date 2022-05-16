@@ -32,3 +32,5 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 + [Install QT by terminal](https://wiki.qt.io/Install_Qt_5_on_Ubuntu)
 + Check if all the installations were successful by trying to build [DarkNet](https://github.com/AlexeyAB/darknet)
 + Download the weight files [link](https://www.dropbox.com/s/92mnurujtjtywcr/lightDenseYOLO.zip?dl=0).
+
+**Build:
