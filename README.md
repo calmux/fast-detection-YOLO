@@ -34,4 +34,5 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 + Download the weight files [link](https://www.dropbox.com/s/92mnurujtjtywcr/lightDenseYOLO.zip?dl=0).
 
 **Build:**
-+ Create a new Qt pro
++ Create a new Qt project,
++ Cop
