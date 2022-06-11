@@ -36,4 +36,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 **Build:**
 + Create a new Qt project,
 + Copy all the existing files into the project folder. 
-+ Create a new folder named **data** adjacent to the
++ Create a new folder named **data** adjacent to the project fo
