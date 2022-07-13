@@ -39,4 +39,5 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 + Create a new folder named **data** adjacent to the project folder and copy the weight file and the cfg file therein.
 + Hit build and run.
 
-**Example vide
+**Example video**
++ [Yout
