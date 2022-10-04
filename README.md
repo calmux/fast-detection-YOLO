@@ -40,4 +40,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 + Hit build and run.
 
 **Example video**
-+ [Youtube link](https://www.youtube.com/watch?v=XfbD2THhfiY&feature=you
++ [Youtube link](https://www.youtube.com/watch?v=XfbD2THhfiY&feature=youtu.be
