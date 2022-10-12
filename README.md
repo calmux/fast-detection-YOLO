@@ -43,4 +43,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 + [Youtube link](https://www.youtube.com/watch?v=XfbD2THhfiY&feature=youtu.be)
 
 # References
-1.[
+1.[LightDenseYOL
