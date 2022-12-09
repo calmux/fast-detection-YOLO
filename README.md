@@ -45,4 +45,6 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 # References
 1.[LightDenseYOLO: A Fast and Accurate Marker Tracker for Autonomous UAV Landing by Visible Light Camera Sensor on Drone](http://www.mdpi.com/1424-8220/18/6/1703)
 
-2.[YOLO 9000](https://arxiv.org/abs/161
+2.[YOLO 9000](https://arxiv.org/abs/1612.08242)
+
+3.
