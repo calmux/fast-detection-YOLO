@@ -51,4 +51,4 @@ Fast-detection-YOLO was trained on two renowned object detection datasets (MS CO
 
 4.[MobileNets](https://arxiv.org/abs/1704.04861)
 
-5.[MobileNets+SSD](https://ieeexplore.ieee.org/document
+5.[MobileNets+SSD](https://ieeexplore.ieee.org/document/8099834/)
